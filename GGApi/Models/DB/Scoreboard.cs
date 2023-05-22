@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using GGApi.Models.DTOs;
 
 namespace GGApi.Models.DB
 {

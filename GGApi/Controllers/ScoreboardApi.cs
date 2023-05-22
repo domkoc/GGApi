@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using GGApi.Models.DTOs;
+using GGApi.Services;
 
 namespace GGApi.Controllers
 {
@@ -10,6 +11,13 @@ namespace GGApi.Controllers
     [ApiController]
     public class ScoreboardApiController : ControllerBase
     { 
+        private readonly ScoreboardService _scoreboardService;
+
+        public ScoreboardApiController(ScoreboardService scoreboardService)
+        {
+            _scoreboardService = scoreboardService;
+        }
+
         /// <summary>
         /// Poll scoreboard
         /// </summary>
@@ -17,9 +25,20 @@ namespace GGApi.Controllers
         /// <response code="200">The scores of players currently on the scoreboard</response>
         [HttpGet]
         [Route("/scoreboard")]
-        public virtual IActionResult GetScoreboard()
+        public async Task<ScoreboardDTO> GetScoreboard()
         {
-            throw new NotImplementedException();
+            var scores = await _scoreboardService.GetScoreboardAsync();
+            var scoreboardDTO = new ScoreboardDTO();
+            foreach (var score in scores)
+            {
+                var player = new ScoreboardDTOPlayers()
+                { 
+                    Username = score.Username, 
+                    Score = score.Score
+                };
+                scoreboardDTO.Players.Add(player);
+            }
+            return scoreboardDTO;
         }
 
         /// <summary>

@@ -1,9 +1,13 @@
 using GGApi.Models.DB;
+using GGApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<GeoguesserDatabaseSettings>(
     builder.Configuration.GetSection("GeoguesserDatabase"));
+
+builder.Services.AddSingleton<LocationService>();
+builder.Services.AddSingleton<ScoreboardService>();
 
 // Add services to the container.
 
