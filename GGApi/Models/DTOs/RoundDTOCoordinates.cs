@@ -2,20 +2,27 @@ using System;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace GGApi.Models
-{ 
+namespace GGApi.Models.DTOs
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class RoundDTO : IEquatable<RoundDTO>
-    { 
+    public partial class RoundDTOCoordinates : IEquatable<RoundDTOCoordinates>
+    {
         /// <summary>
-        /// Gets or Sets Tasks
+        /// Gets or Sets Longitude
         /// </summary>
 
-        [DataMember(Name="tasks")]
-        public List<RoundDTOTasks> Tasks { get; set; }
+        [DataMember(Name = "longitude")]
+        public decimal? Longitude { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Lattitude
+        /// </summary>
+
+        [DataMember(Name = "lattitude")]
+        public decimal? Lattitude { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -24,8 +31,9 @@ namespace GGApi.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RoundDTO {\n");
-            sb.Append("  Tasks: ").Append(Tasks).Append("\n");
+            sb.Append("class RoundDTOCoordinates {\n");
+            sb.Append("  Longitude: ").Append(Longitude).Append("\n");
+            sb.Append("  Lattitude: ").Append(Lattitude).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -39,24 +47,29 @@ namespace GGApi.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((RoundDTO)obj);
+            return obj.GetType() == GetType() && Equals((RoundDTOCoordinates)obj);
         }
 
         /// <summary>
-        /// Returns true if RoundDTO instances are equal
+        /// Returns true if RoundDTOCoordinates instances are equal
         /// </summary>
-        /// <param name="other">Instance of RoundDTO to be compared</param>
+        /// <param name="other">Instance of RoundDTOCoordinates to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RoundDTO other)
+        public bool Equals(RoundDTOCoordinates other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
+            return
                 (
-                    Tasks == other.Tasks ||
-                    Tasks != null &&
-                    Tasks.SequenceEqual(other.Tasks)
+                    Longitude == other.Longitude ||
+                    Longitude != null &&
+                    Longitude.Equals(other.Longitude)
+                ) &&
+                (
+                    Lattitude == other.Lattitude ||
+                    Lattitude != null &&
+                    Lattitude.Equals(other.Lattitude)
                 );
         }
 
@@ -70,26 +83,28 @@ namespace GGApi.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Tasks != null)
-                    hashCode = hashCode * 59 + Tasks.GetHashCode();
+                if (Longitude != null)
+                    hashCode = hashCode * 59 + Longitude.GetHashCode();
+                if (Lattitude != null)
+                    hashCode = hashCode * 59 + Lattitude.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
-        public static bool operator ==(RoundDTO left, RoundDTO right)
+        public static bool operator ==(RoundDTOCoordinates left, RoundDTOCoordinates right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(RoundDTO left, RoundDTO right)
+        public static bool operator !=(RoundDTOCoordinates left, RoundDTOCoordinates right)
         {
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }

@@ -1,10 +1,10 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using GGApi.Models;
+using GGApi.Models.DTOs;
 
 namespace GGApi.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>

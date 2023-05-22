@@ -1,4 +1,9 @@
+using GGApi.Models.DB;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<GeoguesserDatabaseSettings>(
+    builder.Configuration.GetSection("GeoguesserDatabase"));
 
 // Add services to the container.
 
@@ -23,3 +28,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+// TODO: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-7.0&tabs=visual-studio
+// https://www.mongodb.com/developer/languages/csharp/create-restful-api-dotnet-core-mongodb/

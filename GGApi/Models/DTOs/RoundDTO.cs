@@ -2,27 +2,20 @@ using System;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace GGApi.Models
-{ 
+namespace GGApi.Models.DTOs
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class NewScoreDTO : IEquatable<NewScoreDTO>
-    { 
+    public partial class RoundDTO : IEquatable<RoundDTO>
+    {
         /// <summary>
-        /// Gets or Sets LobbyId
+        /// Gets or Sets Tasks
         /// </summary>
 
-        [DataMember(Name="lobbyId")]
-        public string LobbyId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Username
-        /// </summary>
-
-        [DataMember(Name="username")]
-        public string Username { get; set; }
+        [DataMember(Name = "tasks")]
+        public List<RoundDTOTasks> Tasks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -31,9 +24,8 @@ namespace GGApi.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewScoreDTO {\n");
-            sb.Append("  LobbyId: ").Append(LobbyId).Append("\n");
-            sb.Append("  Username: ").Append(Username).Append("\n");
+            sb.Append("class RoundDTO {\n");
+            sb.Append("  Tasks: ").Append(Tasks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -47,30 +39,25 @@ namespace GGApi.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((NewScoreDTO)obj);
+            return obj.GetType() == GetType() && Equals((RoundDTO)obj);
         }
 
         /// <summary>
-        /// Returns true if NewScoreDTO instances are equal
+        /// Returns true if RoundDTO instances are equal
         /// </summary>
-        /// <param name="other">Instance of NewScoreDTO to be compared</param>
+        /// <param name="other">Instance of RoundDTO to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewScoreDTO other)
+        public bool Equals(RoundDTO other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
-                (
-                    LobbyId == other.LobbyId ||
-                    LobbyId != null &&
-                    LobbyId.Equals(other.LobbyId)
-                ) && 
-                (
-                    Username == other.Username ||
-                    Username != null &&
-                    Username.Equals(other.Username)
-                );
+            return
+
+                    Tasks == other.Tasks ||
+                    Tasks != null &&
+                    Tasks.SequenceEqual(other.Tasks)
+                ;
         }
 
         /// <summary>
@@ -83,28 +70,26 @@ namespace GGApi.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (LobbyId != null)
-                    hashCode = hashCode * 59 + LobbyId.GetHashCode();
-                    if (Username != null)
-                    hashCode = hashCode * 59 + Username.GetHashCode();
+                if (Tasks != null)
+                    hashCode = hashCode * 59 + Tasks.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
-        public static bool operator ==(NewScoreDTO left, NewScoreDTO right)
+        public static bool operator ==(RoundDTO left, RoundDTO right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(NewScoreDTO left, NewScoreDTO right)
+        public static bool operator !=(RoundDTO left, RoundDTO right)
         {
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }

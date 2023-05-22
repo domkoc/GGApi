@@ -2,27 +2,27 @@ using System;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace GGApi.Models
-{ 
+namespace GGApi.Models.DTOs
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class AnswersDTOAnswers : IEquatable<AnswersDTOAnswers>
-    { 
+    public partial class LobbyDTO : IEquatable<LobbyDTO>
+    {
         /// <summary>
-        /// Gets or Sets Title
+        /// Gets or Sets Username
         /// </summary>
 
-        [DataMember(Name="title")]
-        public string Title { get; set; }
+        [DataMember(Name = "username")]
+        public string Username { get; set; }
 
         /// <summary>
-        /// Gets or Sets Coordinates
+        /// Gets or Sets LobbyId
         /// </summary>
 
-        [DataMember(Name="coordinates")]
-        public RoundDTOCoordinates Coordinates { get; set; }
+        [DataMember(Name = "lobbyId")]
+        public string LobbyId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -31,9 +31,9 @@ namespace GGApi.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AnswersDTOAnswers {\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Coordinates: ").Append(Coordinates).Append("\n");
+            sb.Append("class LobbyDTO {\n");
+            sb.Append("  Username: ").Append(Username).Append("\n");
+            sb.Append("  LobbyId: ").Append(LobbyId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -47,29 +47,29 @@ namespace GGApi.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((AnswersDTOAnswers)obj);
+            return obj.GetType() == GetType() && Equals((LobbyDTO)obj);
         }
 
         /// <summary>
-        /// Returns true if AnswersDTOAnswers instances are equal
+        /// Returns true if LobbyDTO instances are equal
         /// </summary>
-        /// <param name="other">Instance of AnswersDTOAnswers to be compared</param>
+        /// <param name="other">Instance of LobbyDTO to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AnswersDTOAnswers other)
+        public bool Equals(LobbyDTO other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
+            return
                 (
-                    Title == other.Title ||
-                    Title != null &&
-                    Title.Equals(other.Title)
-                ) && 
+                    Username == other.Username ||
+                    Username != null &&
+                    Username.Equals(other.Username)
+                ) &&
                 (
-                    Coordinates == other.Coordinates ||
-                    Coordinates != null &&
-                    Coordinates.Equals(other.Coordinates)
+                    LobbyId == other.LobbyId ||
+                    LobbyId != null &&
+                    LobbyId.Equals(other.LobbyId)
                 );
         }
 
@@ -83,28 +83,28 @@ namespace GGApi.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Title != null)
-                    hashCode = hashCode * 59 + Title.GetHashCode();
-                    if (Coordinates != null)
-                    hashCode = hashCode * 59 + Coordinates.GetHashCode();
+                if (Username != null)
+                    hashCode = hashCode * 59 + Username.GetHashCode();
+                if (LobbyId != null)
+                    hashCode = hashCode * 59 + LobbyId.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
-        public static bool operator ==(AnswersDTOAnswers left, AnswersDTOAnswers right)
+        public static bool operator ==(LobbyDTO left, LobbyDTO right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(AnswersDTOAnswers left, AnswersDTOAnswers right)
+        public static bool operator !=(LobbyDTO left, LobbyDTO right)
         {
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }
