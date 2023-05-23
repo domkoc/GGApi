@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using GGApi.Models.DTOs;
+using GGApi.Services;
 
 namespace GGApi.Controllers
 {
@@ -11,6 +12,12 @@ namespace GGApi.Controllers
     [ApiController]
     public class LobbyApiController : ControllerBase
     { 
+        private readonly GameService _gameService;
+        public LobbyApiController(GameService gameService)
+        {
+            _gameService = gameService;
+        }
+
         /// <summary>
         /// Create new lobby
         /// </summary>
@@ -19,9 +26,10 @@ namespace GGApi.Controllers
         /// <response code="200">Successfully created lobby with id</response>
         [HttpPost]
         [Route("/lobby/new")]
-        public virtual IActionResult CreateLobby([FromBody]LobbyDTO body)
+        public virtual ActionResult<LobbyDTO> CreateLobby([FromBody]LobbyDTO body)
         {
-            throw new NotImplementedException();
+            _gameService.CreateGame(body.Username, body.LobbyId);
+            return body;
         }
 
         /// <summary>
@@ -32,22 +40,31 @@ namespace GGApi.Controllers
         /// <response code="200">Successfully joined lobby with id or created one if didn&#x27;t exist</response>
         [HttpPost]
         [Route("/lobby/join")]
-        public virtual IActionResult JoinLobby([FromBody]LobbyDTO body)
+        public virtual ActionResult<LobbyDTO> JoinLobby([FromBody]LobbyDTO body)
         {
-            throw new NotImplementedException();
+            if (_gameService.JoinGame(body.Username, body.LobbyId))
+            {
+                return body;
+            }
+            return BadRequest();
         }
 
         /// <summary>
         /// Start lobby by id
         /// </summary>
         /// <remarks>Start the lobby with the given id</remarks>
-        /// <param name="lobbyId">ID of lobby</param>
+        /// <param name="lobby_id">ID of lobby</param>
         /// <response code="200">Successfully started lobby with id</response>
         [HttpPost]
         [Route("/lobby/{lobby_id}/start")]
-        public virtual IActionResult StartLobby([FromRoute][Required]string lobbyId)
+        public virtual ActionResult<GameStateDTO> StartLobby([FromRoute][Required]string lobby_id)
         {
-            throw new NotImplementedException();
+            var lobby = _gameService.StartGame(lobby_id);
+            if (lobby == null)
+            {
+                return BadRequest();
+            }
+            return Ok(lobby.AsGameStateDto);
         }
     }
 }

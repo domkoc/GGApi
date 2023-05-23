@@ -7,6 +7,7 @@ builder.Services.Configure<GeoguesserDatabaseSettings>(
     builder.Configuration.GetSection("GeoguesserDatabase"));
 
 builder.Services.AddSingleton<LocationService>();
+builder.Services.AddSingleton<GameService>();
 builder.Services.AddSingleton<ScoreboardService>();
 
 // Add services to the container.

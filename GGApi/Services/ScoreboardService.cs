@@ -7,12 +7,14 @@ namespace GGApi.Services
     public class ScoreboardService
     {
         private readonly IMongoCollection<Scoreboard> _scoreboard;
+        private readonly GameService _gameService;
 
-        public ScoreboardService(IOptions<GeoguesserDatabaseSettings> geoguesserDatabaseSettings)
+        public ScoreboardService(IOptions<GeoguesserDatabaseSettings> geoguesserDatabaseSettings, GameService gameService)
         {
             var mongoClient = new MongoClient(geoguesserDatabaseSettings.Value.ConnectionString);
             var mongoDatabase = mongoClient.GetDatabase(geoguesserDatabaseSettings.Value.DatabaseName);
             _scoreboard = mongoDatabase.GetCollection<Scoreboard>(geoguesserDatabaseSettings.Value.ScoreboardCollectionName);
+            _gameService = gameService;
         }
 
         // Get all scores
@@ -31,6 +33,26 @@ namespace GGApi.Services
         public async Task CreateAsync(Scoreboard scoreboard)
         {
             await _scoreboard.InsertOneAsync(scoreboard);
+        }
+
+        // Create a score from a game
+        public async Task CreateAsync(string lobbyId, string username)
+        {
+            var lobby = _gameService.GetGame(lobbyId);
+            if (lobby == null)
+            {
+                return;
+            }
+            var player = lobby.Players.Find(x => x.Username == username);
+            if (player == null)
+            {
+                return;
+            }
+            await _scoreboard.InsertOneAsync(new Scoreboard()
+            {
+                Username = username,
+                Score = player.Score
+            });
         }
 
         // Update a score

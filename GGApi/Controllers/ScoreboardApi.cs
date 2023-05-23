@@ -49,9 +49,10 @@ namespace GGApi.Controllers
         /// <response code="200">Successfully submitted score</response>
         [HttpPost]
         [Route("/scoreboard")]
-        public virtual IActionResult PostScore([FromBody]NewScoreDTO body)
+        public async virtual Task<IActionResult> PostScore([FromBody]NewScoreDTO body)
         {
-            throw new NotImplementedException();
+            await _scoreboardService.CreateAsync(body.LobbyId, body.Username);
+            return Ok();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace GGApi.Models.DB
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+        [BsonElement("name")]
         public string Name { get; set; }
 
         [BsonElement("y_coordinate")]

@@ -28,11 +28,16 @@ namespace GGApi.Services
         }
 
         // Get a single random location
-        public async Task<Location> GetRandomLocationAsync()
+        public async Task<List<Location>> GetRandomLocationAsync(int numberOfLocations)
         {
             var locations = await _locations.Find(location => true).ToListAsync();
             var random = new Random();
-            return locations[random.Next(locations.Count)];
+            var randomLocations = new List<Location>();
+            for (int i = 0; i < numberOfLocations; i++)
+            {
+                randomLocations.Add(locations[random.Next(locations.Count)]);
+            }
+            return randomLocations;
         }
 
         // Create a location
