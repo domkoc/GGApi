@@ -28,7 +28,10 @@ namespace GGApi.Controllers
         public async Task<ScoreboardDTO> GetScoreboard()
         {
             var scores = await _scoreboardService.GetScoreboardAsync();
-            var scoreboardDTO = new ScoreboardDTO();
+            var scoreboardDTO = new ScoreboardDTO()
+            {
+                Players = new List<ScoreboardDTOPlayers>()
+            };
             foreach (var score in scores)
             {
                 var player = new ScoreboardDTOPlayers()
