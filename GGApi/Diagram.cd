@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="GGApi.Controllers.GameApiController">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAgAgAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Controllers\GameApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GGApi.Controllers.LobbyApiController">
+    <Position X="11.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAIAAAACIAA=</HashCode>
+      <FileName>Controllers\LobbyApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GGApi.Controllers.ScoreboardApiController">
+    <Position X="8.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ScoreboardApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_scoreboardService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GGApi.Models.DB.GeoguesserDatabaseSettings" Collapsed="true">
+    <Position X="12.5" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABABABAAA=</HashCode>
+      <FileName>Models\DB\GeoguesserDatabaseSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GGApi.Models.DB.Location">
+    <Position X="8.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DB\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GGApi.Models.DB.Scoreboard">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DB\Scoreboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GGApi.Models.DTOs.AnswersDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgQAAAAAAAAAAAIAAQAAAAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\AnswersDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.AnswersDTOAnswers" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAEgAAAAAAAIAAAAIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\AnswersDTOAnswers.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.GameStateDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAgAIAAAAAABAAAAiA=</HashCode>
+      <FileName>Models\DTOs\GameStateDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.GameStateDTOPlayers" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgEgQAAAAAAAIQAAIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\GameStateDTOPlayers.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.LobbyDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgQAAAAAAAAAAAIAAAAAAAAAABiA=</HashCode>
+      <FileName>Models\DTOs\LobbyDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.NewScoreDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgQAAAAAAAAAAAIAAAAAAAAAABiA=</HashCode>
+      <FileName>Models\DTOs\NewScoreDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.RoundDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAIAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\RoundDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.RoundDTOCoordinates" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAEAAAAAEgAAAAAAAAAAAAIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\RoundDTOCoordinates.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.RoundDTOTasks" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAEgAAAAAAAIAAAAIAAAAABAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\RoundDTOTasks.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.ScoreboardDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAgAIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\ScoreboardDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Models.DTOs.ScoreboardDTOPlayers" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgEgQAAAAAAAAAAAIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Models\DTOs\ScoreboardDTOPlayers.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GGApi.Services.Lobby">
+    <Position X="2.75" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="GGApi.Services.Lobby.Question" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Services\GameService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="GGApi.Services.Lobby.Player" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Services\GameService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAAAAAAAAAAAAAAAAIgAAAkAAAAAAAAAAA=</HashCode>
+      <FileName>Services\GameService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GGApi.Services.GameService">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAECAAAAAIAAAAAAAACAAAgAQEAEAAAEAAAAIAAAAA=</HashCode>
+      <FileName>Services\GameService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_locationService" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Lobbies" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="GGApi.Services.LocationService">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAEAAAAAAAAAAAAEAAAAAAAAgBAAAAAIAAAIA=</HashCode>
+      <FileName>Services\LocationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GGApi.Services.ScoreboardService">
+    <Position X="5.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAgAAAAAAAAAAAAAAAAAAAAAAAAgAAAIAAIAAAIA=</HashCode>
+      <FileName>Services\ScoreboardService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameService" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

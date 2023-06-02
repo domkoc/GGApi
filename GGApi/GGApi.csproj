@@ -17,5 +17,8 @@
     <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
+	<ItemGroup>
+		<ProjectCapability Include="CSharp;Managed;ClassDesigner" />
+	</ItemGroup>
 
 </Project>
